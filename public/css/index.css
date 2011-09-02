@@ -27,8 +27,8 @@ html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-
 body { margin: 0; font-size: 13px; line-height: 1.231; }
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { background: #333; color: #fff; text-shadow: none; }
+::selection { background: #333; color: #fff; text-shadow: none; }
 
 a { color: #00e; }
 a:visited { color: #551a8b; }
@@ -97,18 +97,19 @@ td { vertical-align: top; }
   font-size: 30px;
   position: absolute;
   top: 50px;
-  left: 320px;
-  right: 15px;
+  left: 315px;
+  right: 25px;
   height: 105px;
   z-index: 10;
   color: #c4bfb6;
   white-space: nowrap;
+  text-shadow: 1px 1px 0 #fff;
   background: #f4f3ed url('../img/brandtail.png') no-repeat scroll center right;
   
 }
 
 #slogan1 {
-  line-height: 100px;
+  line-height: 105px;
   margin-left: 230px;
 }
 
@@ -123,7 +124,7 @@ td { vertical-align: top; }
 #content-container {
   position: absolute;
   top: 0px;
-  left: 320px;
+  left: 315px;
   bottom: -20px;
   right: 0px;
   background-color: #fff;
@@ -147,14 +148,31 @@ td { vertical-align: top; }
 
 #scrolling-content header {
   top: 0px;
-  margin-left: -280px;
+  margin-left: -325px;
   float: left;
-  width: 200px;
+  width: 240px;
   background-color: #fff;
   padding: 25px;
   box-shadow: -4px 6px 6px #888;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+}
+
+#scrolling-content h1 {
+  color: #666;
+  margin-bottom: 4px;
+}
+
+#scrolling-content header h1 {
+  font-size: 18px;
+  color: #168fd4;
+  margin-bottom: 4px;
+}
+
+.end-section {
+  height: 100px;
+  border-top: 1px dashed #ccc;
+  margin-top: 25px;
 }
 
 #nodejitsu {
@@ -190,6 +208,11 @@ td { vertical-align: top; }
   bottom: 0px;
   height: 170px;
   box-shadow: -20px 20px 10px #fff;
+}
+
+
+img {
+  width: 100%;
 }
 
 
