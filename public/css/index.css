@@ -89,28 +89,47 @@ td { vertical-align: top; }
   bottom: 0px;
   right: 0px;
   background: url('../img/flatironbuilding.png') no-repeat scroll top left;
+  xbackground: #ddd;
   overflow: hidden;
 }
 
 #brand-container {
   font-family: 'MentoneSemiBold';
-  font-size: 30px;
+  font-size: 20px;
   position: absolute;
   top: 50px;
   left: 315px;
   right: 25px;
   height: 105px;
-  z-index: 10;
+  z-index: 50;
   color: #c4bfb6;
   white-space: nowrap;
+  text-align: right;
+  padding-right: 20px;
   text-shadow: 1px 1px 0 #fff;
   background: #f4f3ed url('../img/brandtail.png') no-repeat scroll center right;
-  
+}
+
+#nav {
+  line-height: 105px;
+  margin-left: 230px;
+}
+
+#nav a {
+  color: #666;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+#nav a:hover {
+  color: #168fd4;
 }
 
 #slogan1 {
-  line-height: 105px;
-  margin-left: 230px;
+  position: absolute;
+  right: 20px;
+  bottom: 12px;
+  font-size: 15px;
 }
 
 #logo {
@@ -156,6 +175,57 @@ td { vertical-align: top; }
   box-shadow: -4px 6px 6px #888;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+}
+
+#diagram {
+  position: relative;
+  height: 200px;
+  width: 600px;
+}
+
+#diagram .component {
+  position: absolute;
+  border: 2px solid #999;
+  height: 100px;
+  width: 100px;
+  border-radius: 99em;
+  font-size: 20px;
+  text-align: center;
+  background-color: #fff;
+  z-index: 0;
+  color: #999;
+}
+
+#diagram .component span {
+  width: 100px;
+  display: block;
+  margin: auto;
+  margin-top: 40%;
+}
+
+#diagram .component:hover {
+  color: #168fd4;
+  cursor: pointer;
+  
+  box-shadow: 0px 0px 10px #666;
+  z-index: 99;
+}
+
+#diagram #diagram_routing { top: 20px; left: 20px; }
+#diagram #diagram_middleware { top: 35px; left: 110px; height: 140px; width: 140px; }
+#diagram #diagram_templating { top: 10px; left: 240px; height: 120px; width: 120px; }
+#diagram #diagram_odm { top: 50px; left: 320px; }
+#diagram #diagram_composition { top: 30px; left: 400px; height: 140px; width: 140px; }
+
+#diagram #puffy { 
+  z-index: 1; 
+  position: absolute; 
+  bottom: 0px; 
+  right: 0px; 
+  left: 0px; 
+  height: 40px; 
+  background-color: #fff;
+  box-shadow: -20px -20px 20px #fff;
 }
 
 #scrolling-content h1 {
