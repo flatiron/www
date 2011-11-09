@@ -31,7 +31,7 @@
         <a href="#composition">composition</a>
       </nav>
     </div>
-    <div id="slogan1">an unobtrusive full stack web framework</div>
+    <div id="slogan1">an unobtrusive framework initiative for node.js</div>
   </div>
   
   <div id="shelter-container">
@@ -52,11 +52,15 @@
     </div>
     <div id="scrolling-content">
 
-      <h1>a full stack framework for node.js</h1>
+      <h1>an unobtrusive framework initiative for node.js</h1>
       No one agrees on frameworks. It's difficult to get consensus on how much or how little a framework should do. Flatiron's approach is to package simple to use yet full featured components and let developers subtract or add what they want.
       <p>
       Flatiron promotes code organization and sustainability by clearly seperating development concerns. Each component works elegantly with or without its counterparts. Many of the components work the same in the browser as they do on the server.
-      <br/><br/>
+      <p>This is the motivation behind flatiron. At it's core flatiron is two things:</p>
+      <p><strong>An initiative to build a collection of decoupled tools with the same standard of quality and performance that you would expect from anything built by <a href="http://nodejitsu.com">Nodejitsu.</a></strong></p>
+      <p><strong>A full-stack web application development framework which packages these tools together to make <a href="http://blog.nodejitsu.com/scaling-isomorphic-javascript-code">isomorphic</a> and <a href="http://nodejs.org/docs/v0.6.0/api/streams.html">stream-based</a> application development easier.</strong></p>
+      <p>Build the best tools and the best systems will follow.</p>
+      
       <h1>inside the framework</h1>
       Packaged inside the framework are the basic building blocks for a modern web application.
 
@@ -68,18 +72,12 @@
         <a href="#composition"><div class="component" id="diagram_composition"><span>composition</span></div></a>
         <div id="puffy"></div>
       </div>
-
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-      <!-- img src="img/placeholder.png" width="684" height="490" alt="Placeholder" -->
       
       <div class="end-section"></div>
       
       <header>
         <h1>routing</h1>
-         make directing trafic simple by centralizing your routing into a table. sugarskull works on the client and the server.
+         make directing traffic simple by centralizing your routing into a table. sugarskull works on the client and the server.
       </header>
       
       <h1 id="routing">sugarskull ★ full featured routing</h1>
@@ -239,12 +237,21 @@
   <script type="text/javascript" src="js/jquery.1.7.min.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
 
-  <!-- script> // Change UA-XXXXX-X to be your site's ID
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script -->
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24971485-5']);
+    _gaq.push(['_setDomainName', 'none']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
 
 
   <!--[if lt IE 7 ]>
