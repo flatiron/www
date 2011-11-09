@@ -90,13 +90,15 @@
       <p>A route table is as simple as an object literal. A potentially nested set of key/value pairs. The keys in the object literal represent each potential part of the URL. The values in the object literal contain references to the functions that should be associated with them.
       <pre><code>
 
-        var routes = { // an object literal.
-
-          '/dog': bark, // a route which assigns the function `bark`.
-          '/cat': [meow, scratch] // a route which assigns the functions `meow` and `scratch`.
+        var routes = {
+          '/authors': {
+            on: showAuthor,
+            '/books': { on: [showCover, showDescription] },
+            '/bios': { on: [showPicture, showBiography] }
+          }
         };
 
-        var router = Router(routes); // Instantiate the router.
+        var router = Router(routes);
 
       </code></pre>
 
@@ -108,7 +110,26 @@
       </header>
 
       <h1 id="middleware">union ★ minimalist middleware</h1>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Union is a middleware framework for node.js. It's minimalist, but extensible. It provides an easy way to interact with requests before and after they are processed. Union's request handling is compatible with `connect`, meaning that all existing `connect-middlewares` should work out of the box with union.
+
+      <pre><code>
+
+        var server = union.createServer({
+          before: [
+            function (req, res) {
+              if(req.url.indexOf('foo') !== -1) {
+                return false;
+              }
+            }
+          ]
+        });
+
+        router.get(/foo/, function () {
+          this.res.writeHead(200, { 'Content-Type': 'text/plain' });
+          this.res.end('never sent\n');
+        });
+
+      </code></pre>
 
       <div class="end-section"></div>
 
@@ -118,7 +139,18 @@
       </header>
 
       <h1 id="templating">plates ★ unobtrusive data binding for markup</h1>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Plates (short for templates) binds data to markup. There's NO special syntax. It works in the browser and in node.js! The right way to do this is with a DOM. Unfortunately, at the moment, the DOM is slow. On the server, it is quite slow. So Plates implements a very loose HTML parser.
+
+      <pre><code>
+
+        var plate = new Plate;
+        
+        var html = '&lt;div id="test"&gt;Old Value&lt;/div&gt;';
+        var data = { "test": "New Value" };
+
+        var output = plate(html).bind(data);
+
+      </code></pre>
 
       <div class="end-section"></div>
 
@@ -129,12 +161,34 @@
       
       <h1 id="odm">resourceful ★ object document mapping</h1>
       <p>How often have you found yourself writing Model code in your application? Pretty often? Good! Unlike other "Object-Document Mappers" `resourceful` tries to only focus on two things:
-
+      <br/>
+      <p>
       1. A simple API for defining custom Model prototypes with validation. **No special sugar is required to instantiate prototypes defined by resourceful.**
-      
+      <br/><br/>
       2. Define an extensibility model for databases to provide CRUD functionality to Models along with custom query, filtering or updating specific to that specific implementation (Mongo, CouchDB, Redis, etc).
+      <br/>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <pre><code>
+
+        var Creature = resourceful.define('creature');
+
+        Creature.property('diet'); // Defaults to String
+        Creature.property('vertebrate', Boolean);
+        Creature.property('belly', Array);
+
+        Creature.prototype.feed = function (food) {
+          this.belly.push(food);
+        };
+        
+        var wolf = new Creature({
+          diet:      'carnivor',
+          vertebrate: true
+        });
+
+        wolf.feed('squirrel');
+        console.dir(wolf.belly);
+
+      </code></pre>
 
       <div class="end-section"></div>
 
@@ -144,8 +198,34 @@
       </header>
       
       <h1 id="composition">broadway ★ simple glue for components</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      Thanks to Javascript you never have to worry about types again (mostly), but that doesn't mean that we can't learn something from design patterns more prevalent is static type languages. Namely: inversion of control and dependency injection.
+
+      <p>Broadway exposes a simple "plugin" API which allows the application developer to extend the top-level application object easily. This model translates well between the browser and the server because developers can write different plugins to suite the needs of the different environments. Broadway includes several plugins by default which can be overridden if you don't agree with the particular module or library choice we've made.
+
+      <pre><code>
+
+        var plugin = {
+          "name": "example-plugin", // Plugin's name
+
+          "attach": function attach(options) {
+            // Called with plugin options once plugin attached to application
+            // `this` - is a reference to application
+          },
+
+          "detach": function detach() {
+            // Called when plugin detached from application
+            // (Only if plugin with same name was attached)
+            // `this` - is a reference to application
+          }
+
+          "init": function init(callback) {
+            // Called on application initialization
+            // App#init(callback) will be called once every plugin will call `callback`
+            // `this` - is a reference to application
+          }
+        };
+
+      </code></pre>
 
       <div class="end-section"></div>
 
