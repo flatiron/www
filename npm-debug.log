@@ -1,0 +1,32 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'jitsu@latest', '-g' ]
+info using npm@1.0.99
+info using node@v0.5.10
+verbose config file /Users/paolo/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+silly exec /usr/local/bin/node "/usr/local/lib/node_modules/npm/bin/npm-get-uid-gid.js" "hij1nx" 20
+silly spawning [ '/usr/local/bin/node',
+silly spawning   [ '/usr/local/lib/node_modules/npm/bin/npm-get-uid-gid.js',
+silly spawning     'hij1nx',
+silly spawning     20 ],
+silly spawning   null ]
+silly output from getuid/gid {"error":"setuid user id does not exist"}
+silly output from getuid/gid 
+ERR! Error: setuid user id does not exist
+ERR!     at /usr/local/lib/node_modules/npm/lib/utils/uid-number.js:42:18
+ERR!     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/exec.js:54:5)
+ERR!     at ChildProcess.emit (events.js:70:17)
+ERR!     at maybeExit (child_process.js:336:16)
+ERR!     at Process.onexit (child_process.js:371:5)
+ERR! Report this *entire* log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Darwin 11.2.0
+ERR! command "node" "/usr/local/bin/npm" "install" "jitsu@latest" "-g"
+ERR! cwd /Users/paolo/workroot/git/flatiron/www
+ERR! node -v v0.5.10
+ERR! npm -v 1.0.99
+verbose exit [ 1, true ]
