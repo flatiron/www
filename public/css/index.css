@@ -275,6 +275,15 @@ a.github {
   z-index: 5;
 }
 
+#fork-me-on-github img {
+  z-index: 100;
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+}
+
 #shelter-container, #shelter-lid {
   position: absolute;
   right: 15px;
