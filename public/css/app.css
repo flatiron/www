@@ -1,0 +1,253 @@
+
+/* -------------------------------------------------- 
+   Table of Contents
+-----------------------------------------------------
+:: Shared Styles
+:: index.html
+*/
+
+/*  --------------------------------------------------
+  Syntax
+  -------------------------------------------------- */
+	.syntax .keyword              { font-weight: bold }
+	.syntax .string, .syntax .regexp { color: green }
+	.syntax .class, .syntax .special { color: blue }
+	.syntax .number               { color: brown }
+	.syntax .comment              { color: grey }
+
+/*  --------------------------------------------------
+  Panels
+  -------------------------------------------------- */
+  div.panel {
+    padding: 20px 20px 2px 20px;
+    background: #efefef;
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#F4F4F4));
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#F4F4F4',GradientType=0 );
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+    margin: 0 0 20px 0;
+  }
+
+
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+
+@font-face {
+    font-family: 'MentoneSemiBold';
+    src: url('../fonts/mentone-semibol-webfont.eot');
+    src: url('../fonts/mentone-semibol-webfont.eot?iefix') format('eot'),
+         url('../fonts/mentone-semibol-webfont.woff') format('woff'),
+         url('../fonts/mentone-semibol-webfont.ttf') format('truetype'),
+         url('../fonts/mentone-semibol-webfont.svg#webfontj5oJI0wE') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+	font-family: 'MentoneSemiBold';
+	font-size: 1200%;
+	text-shadow: 0 2px 1px white;
+	text-align: center;
+}
+
+h2 {
+	margin-top: 0px;
+	font-size: 200%;
+	color: #46483E;
+}
+
+h2.green {
+	margin-top: 60px;
+	color: #76A83F;
+}
+
+h2 .name {
+	color: #333;
+}
+
+h3 {
+	font-size: 120%;
+	color: #46483E;
+	margin: 0px;
+	line-height: 18px;
+}
+
+p {
+	margin-bottom: 25px;
+}
+
+body {
+	color: #46483E;
+	background: #EEE;
+}
+
+.nav-bar {
+	background: #F9F9F9;
+	border-radius: 4px;
+}
+
+.bash {
+	font-family: 'Monaco', 'Consolas', monospace;
+}
+
+img.icon {
+	vertical-align: middle;
+}
+
+code {
+	margin: 0 2px;
+	padding: 2px 5px;
+	white-space: nowrap;
+	border: 1px solid #CCC;
+	background-color: #F8F8F8;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-image: initial;
+	font-family: 'Monaco', 'Consolas', monospace;
+}
+
+li {
+	list-style: circle;
+	margin-left: 20px;
+}
+
+pre {
+	border: none;
+	background: none;
+}
+
+.center {
+	text-align: center;
+}
+
+.h2-container {
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0 0px 0;
+	margin: 10px 0 10px 0;
+	position: relative;
+}
+
+.h2-container .button {
+	position: absolute;
+	right: 0px;
+	bottom: 6px;
+}
+
+.h2-container.first {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+
+
+/* -----------------------------------------
+   index.html
+----------------------------------------- */
+
+
+/* -----------------------------------------
+	Custom Headers
+----------------------------------------- */
+
+#header {
+	height: 265px;
+	background: #f3f2ea;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	position: fixed;
+	overflow: hidden;
+}
+
+#building {
+	width: 561px;
+	height: 277px;
+	position: absolute;
+	right: 12%;
+	top: 0px;
+	background-image: url(../img/flatironbuilding.png);
+}
+
+#header-buttons {
+	
+	z-index: 20;
+	position: absolute;
+	top: 40px;
+	right: 15%;
+	margin: 50px;
+	text-align: right;
+}
+
+#feature {
+	top: -2px;
+	width: 400px;
+	position: absolute;
+	background: #f3f2ea;
+	font-size: 18px;
+	z-index: 100;
+}
+
+#spacer {
+	height: 275px;
+	width: 100%;
+}
+
+#toc {
+	z-index: 400;
+	position: relative;
+  text-align: center;
+	width: 100%;
+	font-size: 20px;
+	height: 65px;
+	margin-top: 250px;
+	height: 65px;
+	background-color: #eee;	
+	box-shadow: 0px -3px 4px #999;
+}
+
+#toc-content {
+	height: 65px;
+	z-index: 400;
+	background-color: #fdfdfd;
+	overflow: hidden;
+}
+
+#toc .button-group {
+	margin: 20px;
+}
+
+.fixed-toc {
+	position: fixed !important;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	box-shadow: 0px 2px 4px #333;
+	opacity: 0.95;
+}
+
+.fixed-toc:hover {
+	opacity: 1;
+}
+
+#main {
+	z-index: 200;
+	position: relative;
+	background-color: #eee;
+}
+
+#movable {
+	padding-top: 25px;
+	z-index: 300;
+	position: relative;
+	width: 100%;
+	background-color: #eee;
+}
+
+#headover {
+	width: 905px;
+}
+

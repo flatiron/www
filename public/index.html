@@ -1,269 +1,520 @@
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title></title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flatiron, A framework for Node.js</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+    <body>
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+      <div id="header">
+        <div id="headercontent">
 
-  <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="css/index.css">
-  <!-- end CSS-->
+          <div class="container" id="headover">
+            <div class="row">
+              <div class="panel" id="feature">
+                <div class="center">
+                  <img src="img/flatiron.png">
+                  <br/>
+                  <br/>
+                    <b>flatiron</b> is an anti-framework for building modern web applications. It was built from the ground up for use with <b>Javascript</b> and <b>Node.js</b>.
+                  <br/>
+                  <br/>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
 
-</head>
+          <div id="building"></div>
 
-<body>
-  <div id="brand-container">
-    <div id="logo"></div>
-    <div id="nav">
-      <nav>
-        <a href="#routing">routing</a>
-        <a href="#middleware">middleware</a>
-        <a href="#templating">templating</a>
-        <a href="#odm">odm</a>
-        <a href="#composition">composition</a>
-      </nav>
-    </div>
-    <div id="slogan1">an unobtrusive framework initiative for node.js</div>
-  </div>
-  
-  <div id="shelter-container">
-    <div></div>
-  </div>
-
-  <div id="shelter-lid">
-  </div>
-
-  <div id="fork-me-on-github">
-    <a href="https://github.com/flatiron">
-      <img src="https://a248.e.akamai.net/assets.github.com/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67"
-           alt="Fork me on GitHub">
-    </a>
-  </div>
-
-  <div id="nodejitsu">
-  </div>
-
-  <div id="container">
-    <header>
-
-    </header>
-    <div id="content-container" role="main">
-    </div>
-    <div id="scrolling-content">
-
-      <h1>an unobtrusive framework initiative for node.js</h1>
-      No one agrees on frameworks. It's difficult to get consensus on how much or how little a framework should do. Flatiron's approach is to package simple to use yet full featured components and let developers subtract or add what they want.
-      <p>
-      Flatiron promotes code organization and sustainability by clearly separating development concerns. Each component works elegantly with or without its counterparts. Many of the components work the same in the browser as they do on the server. This is the motivation behind flatiron. At it's core flatiron is two things:</p>
-      <p>1) an initiative to build a collection of decoupled tools with the same standard of quality and performance that you would expect from anything built by <a href="http://nodejitsu.com">nodejitsu.</a>
-      <br/>
-      <p>2) a full-stack web application development framework which packages these tools together to make <a href="http://blog.nodejitsu.com/scaling-isomorphic-javascript-code">isomorphic</a> and <a href="http://nodejs.org/docs/v0.6.0/api/streams.html">stream-based</a> application development easier.</p>
-      
-      <h1>inside the framework</h1>
-      Packaged inside the framework are the basic building blocks for a modern web application.
-
-      <div id="diagram">
-        <a href="#routing"><div class="component" id="diagram_routing"><span>routing</span></div></a>
-        <a href="#middleware"><div class="component" id="diagram_middleware"><span>middleware</span></div></a>
-        <a href="#templating"><div class="component" id="diagram_templating"><span>templating</span></div></a>
-        <a href="#odm"><div class="component" id="diagram_odm"><span>odm</span></div></a>
-        <a href="#composition"><div class="component" id="diagram_composition"><span>composition</span></div></a>
-        <div id="puffy"></div>
+        </div>
       </div>
+
+      <div id="toc" class="center">
+        <div id="toc-content">
+          <div class="button-group">
+            <a href="#home" class="button icon home">Home</a>
+            <a href="#routing" class="button">Routing</a>
+            <a href="#templating" class="button">Templating</a>
+            <a href="#data" class="button">Data Management</a>
+            <a href="#middleware" class="button">Middleware</a>
+            <a href="#plugins" class="button">Plugins</a>
+            <a href="#logging" class="button">Logging</a>
+            <a href="#more" class="button icon add">More</a>
+          </div>
+          <div class="button-group">
+            <a href="http://www.github.com/flatiron" class="button icon fork">Fork on Github</a>
+            <a href="https://twitter.com/share" class="twitter-share-button button icon like" data-via="flatironjs" data-size="large" data-hashtags="nodejs">Mention on Twitter</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </div>
+        </div>
+      </div>
+
       
-      <div class="end-section"></div>
-      
-      <header>
-        <h1>routing</h1><a href="http://github.com/flatiron/sugarskull" class="github">GITHUB</a><br/>
-         make directing traffic simple by centralizing your routing into a table. sugarskull works on the client and the server.
-      </header>
-      
-      <h1 id="routing">sugarskull ★ full featured routing</h1>
-      Sugarskull is a URL router. It works on the browser and the server (Node.js). It's not a plugin for another framework. It's not dependent on anything. It's a modern router that was designed from the ground up for javascript. It's unique.
-
-      <p>On the client, it uses part of the URL to figure out what functions should execute, which usually has some effect on the way the page is presented. On the server, it helps figure out what to do when someone goes to a URL.
-
-      <p>A route table is as simple as an object literal. A potentially nested set of key/value pairs. The keys in the object literal represent each potential part of the URL. The values in the object literal contain references to the functions that should be associated with them.
-      <pre><code>
-
-        var routes = {
-          '/authors': {
-            on: showAuthor,
-            '/books': { on: [showCover, showDescription] },
-            '/bios': { on: [showPicture, showBiography] }
-          }
-        };
-
-        var router = Router(routes);
-
-      </code></pre>
-
-      <div class="end-section"></div>
-
-      <header>
-        <h1>middleware</h1><a href="http://github.com/flatiron/union" class="github">GITHUB</a><br/>
-        A hybrid buffered / streaming middleware kernel backwards compatible with connect. 
-      </header>
-
-      <h1 id="middleware">union ★ minimalist middleware</h1>
-      Union is a middleware framework for node.js. It's minimalist, but extensible. It provides an easy way to interact with requests before and after they are processed. Union's request handling is compatible with `connect`, meaning that all existing `connect-middlewares` should work out of the box with union.
-
-      <pre><code>
-
-        var server = union.createServer({
-          before: [
-            function (req, res) {
-              if(req.url.indexOf('foo') !== -1) {
-                return false;
-              }
-            }
-          ]
-        });
-
-        router.get(/foo/, function () {
-          this.res.writeHead(200, { 'Content-Type': 'text/plain' });
-          this.res.end('never sent\n');
-        });
-
-      </code></pre>
-
-      <div class="end-section"></div>
-
-      <header>
-        <h1>templating</h1><a href="http://github.com/flatiron/plates" class="github">GITHUB</a><br/>
-        A simple, unobtrusive templating solution that keeps the trash/placeholders out of your html. 
-      </header>
-
-      <h1 id="templating">plates ★ unobtrusive data binding for markup</h1>
-      Plates (short for templates) binds data to markup. There's NO special syntax. It works in the browser and in node.js! The right way to do this is with a DOM. Unfortunately, at the moment, the DOM is slow. On the server, it is quite slow. So Plates implements a very loose HTML parser.
-
-      <pre><code>
-
-        var plate = new Plate;
-        
-        var html = '&lt;div id="test"&gt;Old Value&lt;/div&gt;';
-        var data = { "test": "New Value" };
-
-        var output = plate(html).bind(data);
-
-      </code></pre>
-
-      <div class="end-section"></div>
-
-      <header>
-        <h1>odm</h1><a href="http://github.com/flatiron/resourceful" class="github">GITHUB</a><br/>
-        A storage agnostic resource-oriented ODM for building prototypical models with validation and sanitization.
-      </header>
-      
-      <h1 id="odm">resourceful ★ object document mapping</h1>
-      <p>How often have you found yourself writing Model code in your application? Pretty often? Good! Unlike other "Object-Document Mappers" `resourceful` tries to only focus on two things:
-      <br/>
-      <p>
-      1. A simple API for defining custom Model prototypes with validation. **No special sugar is required to instantiate prototypes defined by resourceful.**
-      <br/><br/>
-      2. Define an extensibility model for databases to provide CRUD functionality to Models along with custom query, filtering or updating specific to that specific implementation (Mongo, CouchDB, Redis, etc).
-      <br/>
-
-      <pre><code>
-
-        var Creature = resourceful.define('creature');
-
-        Creature.property('diet'); // Defaults to String
-        Creature.property('vertebrate', Boolean);
-        Creature.property('belly', Array);
-
-        Creature.prototype.feed = function (food) {
-          this.belly.push(food);
-        };
-        
-        var wolf = new Creature({
-          diet:      'carnivor',
-          vertebrate: true
-        });
-
-        wolf.feed('squirrel');
-        console.dir(wolf.belly);
-
-      </code></pre>
-
-      <div class="end-section"></div>
-
-      <header>
-        <h1>composition</h1><a href="http://github.com/flatiron/broadway" class="github">GITHUB</a><br/>
-        Lightweight application extensibility and composition with a twist of feature reflection.
-      </header>
-      
-      <h1 id="composition">broadway ★ simple glue for components</h1>
-      Thanks to Javascript you never have to worry about types again (mostly), but that doesn't mean that we can't learn something from design patterns more prevalent is static type languages. Namely: inversion of control and dependency injection.
-
-      <p>Broadway exposes a simple "plugin" API which allows the application developer to extend the top-level application object easily. This model translates well between the browser and the server because developers can write different plugins to suite the needs of the different environments. Broadway includes several plugins by default which can be overridden if you don't agree with the particular module or library choice we've made.
-
-      <pre><code>
-
-        var plugin = {
-          "name": "example-plugin", // Plugin's name
-
-          "attach": function attach(options) {
-            // Called with plugin options once plugin attached to application
-            // `this` - is a reference to application
-          },
-
-          "detach": function detach() {
-            // Called when plugin detached from application
-            // (Only if plugin with same name was attached)
-            // `this` - is a reference to application
-          }
-
-          "init": function init(callback) {
-            // Called on application initialization
-            // App#init(callback) called once every plugin will call `callback`
-            // `this` - is a reference to application
-          }
-        };
-
-      </code></pre>
-
-      <div class="end-section"></div>
-
-    </div>
-    <footer>
-
-    </footer>
-  </div> <!--! end of #container -->
 
 
-  <script type="text/javascript" src="js/jquery.1.7.min.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
 
-  <script type="text/javascript">
+      <div id="movable">
+        <div class="container" id="main">
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-24971485-5']);
-    _gaq.push(['_setDomainName', 'none']);
-    _gaq.push(['_setAllowLinker', true]);
-    _gaq.push(['_trackPageview']);
+          <div class="row">
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+            <div class="span-one-third">
+              <div class="panel">
+                <h3>What's included?</h3>
+                <br/>
+                <a href="#routing">URL Routing</a><br/>
+                A simple tool for <b>directing traffic</b> based on URLs that are recieved both on the browser and server.
+                <br/>
+                <br/>
+                <a href="#templating">Templating</a><br/>
+                An unobtrusive templating tool that is fast, <b>DSL free</b> and simple to use.
+                <br/>
+                <br/>
+                <a href="#data">Data Management</a><br/>
+                A storage agnostic resource-oriented object to document mapper for building <b>data models</b> with validation and sanitization.
+                <br/>
+                <br/>
+                <a href="#middleware">Middleware</a><br/>
+                A Modern hybrid buffered/streaming middleware kernel backwards compatible with connect.
+                <br/>
+                <br/>
+                <a href="plugins">Plugins</a><br/>
+                A plugin manager that provides lightweight application extensibility and composition with a twist of feature reflection.
+                <br/>
+                <br/>
+                <a href="logging">Logging</a><br/>
+                A multi-transport async logging library for node.js with plugins for many commonly targeted stores.
+                <br/>
+                <br/>
 
-  </script>
+                <h3>There's more!</h3>
+                <br/>
+                Flatiron has many more repositories of useful tools! Simply explore the github repository for more details.
+                Also, all tools are licensed under the MIT or Apache 2.0 License.
+                <br/><br/>
+              </div>
+
+              
+              <br/><br/>
+
+              <div class="panel">
+                  <h3>Who's responsible?</h3>
+                  <br/>
+                  <b>flatiron</b> is maintained by an open source community as well it has sponsorship from <b>nodejitsu</b>
+                <div class="center">
+                  <br/>
+                  <img src="img/nodejitsu.png"/>
+
+                  <br/>
+                  <br/>
+
+                </div>
+                  You can sponsor <b>flatiron</b> by contacting <b>nodejitsu</b>. You can help promote it by clicking on the
+                  tweet button. You can contribute to it by clicking on the fork button.
+                  <br/>
+                  <br/>
+
+                <br/><br/>
+
+              </div>
+
+            </div>
+            <div class="span-two-thirds">
+
+              <h2 id="Philosophy">Philosophy</h2>
+              <p>
+              No one agrees on frameworks. It's difficult to get consensus on how much or how little a framework should do. Flatiron's approach is to package simple to use yet full featured components and let developers subtract or add what they want.</p>
+
+              <h2 id="Motivation">Motivation</h2>
+              <p>
+              Build a collection of decoupled, unobtrusive tools that can operate as well in unison as they do independently. Promote code organization and sustainability by clearly separating development concerns.
+              </p>
+
+              <div class="h2-container first">
+                <h2 class="green">Getting started with <span class="name">Flatiron</span></h2>
+                <a href="http://github.com/flatiron/flatiron" class="button icon tag">Full project on Github</a>
+              </div>
+              <p>
+              Since flatiron consists of largely a components, it's simple to start using.
+              </p>
+
+              <h3>Intallation</h3>
+              <p>You'll need both Node.JS and NPM installed. (NPM is included by default with Node.JS, starting with version 0.6.3). You can download Node.js binary installers for MacOS and Windows <a href="http://nodejs.org/#download">here</a>.</p>
+              
+              <p>Flatiron comes with a commandline tool that can generate several application <b>boilerplates</b>.</p>
+              <div class="panel">
+                  <p class="bash">$ [sudo] npm install flatiron</p>
+              </div>
+              <p>If everything works as expected, you'll now have a new command line tool called <code>nide</code>. To create a new project, go to an existing folder and run:</p>
+              <div class="panel">
+                  <p class="bash">$ flatiron webserver</p>
+              </div>
+              
+
+              <a id="routing">&nbsp;</a>
+
+              <div class="h2-container">
+                <h2 class="green">URL Routing with <span class="name">Director</span></h2>
+                <a href="http://github.com/flatiron/director" class="button icon tag">Full project on Github</a>
+              </div>
+
+              <p>Director is a URL router. It works in a browser for single page apps <b>and</b> in Node.js. It's not a plugin for another framework. It's not dependent on anything. It's a modern router that was designed from the ground up with javascript.</p>
+
+              <p>On the client, it uses part of the URL to figure out what functions should execute, which usually has some effect on the way the page is presented.</p>
+
+              <div class="panel">
+<pre class="syntax"> var routes = {
+  '/authors': {
+    on: showAuthor,
+    '/books': { on: [showCover, showDescription] },
+    '/bios': { on: [showPicture, showBiography] }
+  }
+};
+
+var router = Router(routes);</pre>
+              </div>
+
+              <p>On the server, it helps figure out what to do when a URL is requested from the server.</p>
+
+              <div class="panel">
+<pre class="syntax">
+//
+// require the native http module, as well as director.
+//
+var http = require('http'),
+    director = require('director');
+
+//
+// for the sake of example, lets actually define one of the
+// functions that might be called from in a routing table.
+//
+function showAuthor() {
+  this.res.writeHead(200, { 'Content-Type': 'text/plain' })
+  this.res.end('Carl Sagan');
+}
+
+var routes = {
+  '/authors': {
+    on: showAuthor,
+    '/books': { on: [showCover, showDescription] },
+    '/bios': { on: [showPicture, showBiography] }
+  }
+};
+
+//
+// define a routing table.
+//
+var router = new director.http.Router(routes);
+
+//
+// setup a server and when there is a request, dispatch the
+// route that was requestd in the request object.
+//
+var server = http.createServer(function (req, res) {
+  router.dispatch(req, res, function (err) {
+    if (err) {
+      res.writeHead(404);
+      res.end();
+    }
+  });
+});
+
+//
+// You can also do ad-hoc routing, similar to `journey` or `express`.
+// This can be done with a string or a regexp.
+//
+router.get('/bonjour', helloWorld);
+router.get(/hola/, helloWorld);
+
+//
+// set the server to listen on port `8080`.
+//
+server.listen(8080);
+</pre>
+              </div>
+
+              A route table is as simple as an object literal. A potentially nested set of key/value pairs. The keys in the object literal represent each potential part of the URL. The values in the object literal contain references to the functions that should be associated with them.
+
+              <a id="templating">&nbsp;</a>
+
+              <div class="h2-container">
+                <h2 class="green">Templating with <span class="name">Plates</span></h2>
+                <a href="http://github.com/flatiron/plates" class="button icon tag">Full project on Github</a>
+              </div>
+
+              <p>Plates (short for templates) binds data to markup. It's DSL free! Which means that there is NO special syntax. It's Javascript, Markup and JSON. It works in the browser and in node.js!</p>
+
+              <h3>What problem does it solve?</h3>
+              <br/>
+              <ul>
+                <li>DSLs (Domain Specific Languages) such as &lt;%=foo%&gt; or {{foo}} reduce portability.</li>
+                <li>DOM templating is SLOW.</li>
+                <li>Promote the separation of concerns principle by decoupling decision making from presentation.</li>
+                <li>Make both the code and markup more readable and maintainable by a wider audience.</li>
+              </ul>
+
+              <h3>How does it work?</h3>
+              <p>
+              By default, plates will try to match the data-key in the data to an ID in the tag, since both should are uniqe.
+              </p>
+             
+             <div class="panel">
+<pre class="syntax">
+var Plates = require('plates');
+
+var html = '&lt;div id="test"&gt;Old Value&lt;/div&gt;';
+var data = { "test": "New Value" };
+
+var output = Plates.bind(html, data); 
+</pre>
+</div>
+              <p>
+              A common use case is to apply the new value to each tag's body based on the class attribute.
+              </p>
+             <div class="panel">
+<pre class="syntax">
+var html = '<span class="name">User</span>...<span class="name">User</span>';
+
+var data = { "username": "John Smith" };
+var map = Plates.Map();
+
+map.class('name').to('username');
+
+console.log(Plates.bind(html, data, map));
+</pre>
+</div>
+              <p>
+              Another common case is to want to replace the value of an attribute if it is a match.
+              </p>
+             <div class="panel">
+<pre class="syntax">
+var html = '<a href="/"></a>';
+
+var data = { "newurl": "http://www.nodejitsu.com" };
+var map = Plates.Map();
+
+map.where('href').is('/').insert('newurl');
+
+console.log(Plates.bind(html, data, map));
+</pre>
+</div>
+              <p>
+              In even more complex cases, an arbitrary attribute an be specified, if a value is matched, a specific value can be used and then used as anther attribute's value.
+              </p>
+             <div class="panel">
+<pre class="syntax">
+var html = '<a href="/"></a>';
+
+var data = { "imageurl": "http://www.nodejitsu.com" };
+var map = Plates.Map();
+
+map.where('data-foo').is('bar').use('imageurl').as('src');
+
+console.log(Plates.bind(html, data, map));
+</pre>
+</div>
+
+             <a id="data">&nbsp;</a>
+
+              <div class="h2-container">
+                <h2 class="green">Data Management with <span class="name">Resourceful</span></h2>
+                <a href="http://github.com/flatiron/resourceful" class="button icon tag">Full project on Github</a>
+              </div>
+              <p>Resourceful provides an engine agnostic interface to JSON document stores, as well as a convienient and flexible caching layer.
+              </p>
+
+              <h3>What problem does it solve?</h3>
+              <p>How often have you found yourself writing Model code in your application? Pretty often? Good! Unlike other "Object-Document Mappers" `resourceful` tries to only focus on two things:</p>
+
+              <ul>
+                <li>A simple API for defining custom Model prototypes with validation. No special sugar is required to instantiate prototypes defined by resourceful.</li>
+
+                <li>Define an extensibility model for databases to provide CRUD functionality to Models along with custom query, filtering or updating specific to that specific implementation (Mongo, CouchDB, Redis, etc).</li>
+              </ul>
+
+              <h3>How does it work?</h3>
+              <br/>
+             <div class="panel">
+<pre class="syntax">
+var Creature = resourceful.define('creature');
+
+Creature.property('diet'); // Defaults to String
+Creature.property('vertebrate', Boolean);
+Creature.property('belly', Array);
+
+Creature.prototype.feed = function (food) {
+  this.belly.push(food);
+};
+
+var wolf = new Creature({
+  diet:      'carnivor',
+  vertebrate: true
+});
+
+wolf.feed('squirrel');
+console.dir(wolf.belly);
+</pre>
+</div>
 
 
-  <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->
-  
-</body>
+             <a id="middleware">&nbsp;</a>
+
+              <div class="h2-container">
+                <h2 class="green">Middleware with <span class="name">Union</span></h2>
+                <a href="http://github.com/flatiron/union" class="button icon tag">Full project on Github</a>
+              </div>
+
+              <p>Union is a minimalist middleware framework for node.js. It's minimalist, but extensible. Union's request handling is compatible with `connect`, meaning that all existing `connect-middlewares` should work out of the box with union.
+              </p>
+
+              <h3>What problem does it solve?</h3>
+              <p>It provides an easy way to interact with requests before and after they are processed. But it's primary value add is that it's a hybrid buffered, streaming middleware kernel that isn't coupled with any other software.
+              </p>
+
+              <h3>How does it work?</h3>
+              <br/>
+             <div class="panel">
+<pre class="syntax">
+//
+// for the sake of this example, lets define a function to represent our
+// middleware. Your middleware would likely be a more complex module.
+//
+function middleware1(req, res) {
+  if(~req.url.indexOf('foo')) {
+    return false;
+  }
+}
+
+var server = union.createServer({
+  before: [
+    middleware1
+  ]
+});
+
+router.get(/foo/, function () {
+  this.res.writeHead(200, { 'Content-Type': 'text/plain' });
+  this.res.end('never sent\n');
+});
+</pre>
+</div>
+
+             <a id="plugins">&nbsp;</a>
+
+              <div class="h2-container">
+                <h2 class="green">Plugins with <span class="name">Broadway</span></h2>
+                <a href="http://github.com/flatiron/broadway" class="button icon tag">Full project on Github</a>
+              </div>
+
+              <p>
+              Broadway exposes a simple "plugin" API which allows the application developer to extend the top-level application object easily.
+              </p>
+
+              <h3>What problem does it solve?</h3>
+              <p>
+              This plugin model translates well between the browser and the server because developers can write different plugins to suite the needs of the different environments. Broadway includes several plugins by default which can be overridden if you don't agree with the particular module or library choice we've made.
+              </p>
+
+              <h3>How does it work?</h3>
+              <br/>
+             <div class="panel">
+<pre class="syntax">
+var plugin = {
+  "name": "example-plugin", // Plugin's name
+
+  "attach": function attach(options) {
+    // Called with plugin options once plugin attached to application
+    // `this` - is a reference to application
+  },
+
+  "detach": function detach() {
+    // Called when plugin detached from application
+    // (Only if plugin with same name was attached)
+    // `this` - is a reference to application
+  }
+
+  "init": function init(callback) {
+    // Called on application initialization
+    // App#init(callback) called once every plugin will call `callback`
+    // `this` - is a reference to application
+  }
+};
+</pre>
+</div>
+
+             <a id="logging">&nbsp;</a>
+
+              <div class="h2-container">
+                <h2 class="green">Logging with <span class="name">Winston</span></h2>
+                <a href="http://github.com/flatiron/winston" class="button icon tag">Full project on Github</a>
+              </div>
+
+              <p>
+              A multi-transport async logging library. 
+              </p>
+
+              <h3>What problem does it solve?</h3>
+              <p>Winston is designed to be a simple and universal logging library with support for multiple transports. A transport is essentially a storage device for your logs. Each instance of a winston logger can have multiple transports configured at different levels. For example, one may want error logs to be stored in a persistent remote location (like a database), but all logs output to the console or a local file.</p>
+
+              <p>There also seemed to be a lot of logging libraries out there that coupled their implementation of logging (i.e. how the logs are stored / indexed) to the API that they exposed to the programmer. This library aims to decouple those parts of the process to make it more flexible and extensible.</p>
+
+              <h3>How does it work?</h3>
+              <br/>
+             <div class="panel">
+<pre class="syntax">
+var winston = require('winston');
+
+winston.log('info', 'Hello distributed log files!');
+winston.info('Hello again distributed logs');
+</pre>
+</div>
+
+              <p>By default, only the Console transport is set on the default logger. You can add or remove transports via the add() and remove() methods:</p>
+
+             <div class="panel">
+<pre class="syntax">
+winston.add(winston.transports.File, { filename: 'somefile.log' });
+winston.remove(winston.transports.Console);
+</pre>
+</div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-24971485-5']);
+          _gaq.push(['_setDomainName', 'none']);
+          _gaq.push(['_setAllowLinker', true]);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+
+        <!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+      </div>
+
+      <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+      <script type="text/javascript" src="js/hi.js"></script>
+
+    </body>
 </html>
+
+
+
+
