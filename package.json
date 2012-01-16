@@ -1,12 +1,9 @@
 {
   "name": "flatiron-www",
-  "version": "0.0.0-4",
+  "version": "0.0.0-9",
   "subdomain": "flatiron",
   "dependencies": {
-    "http-server": "*",
-    "colors": "*",
-    "optimist": "*",
-    "wordwrap": "*"
+    "http-server": "0.4.x"
   },
   "domains": [
     "flatironjs.org",
@@ -17,6 +14,6 @@
     "www.flatironjs.net"
   ],
   "scripts": {
-    "start": "node_modules/.bin/http-server"
+    "start": "bin/server"
   }
 }
