@@ -146,11 +146,31 @@
               
               <p>Flatiron comes with a commandline tool that can generate several application <b>boilerplates</b>.</p>
               <div class="panel">
-                  <p class="bash">$ [sudo] npm install flatiron</p>
+                <p class="bash">$ [sudo] npm install flatiron</p>
               </div>
-              <p>If everything works as expected, you'll now have a new command line tool called <code>nide</code>. To create a new project, go to an existing folder and run:</p>
+              <p>If everything works as expected, you'll now have a new command line tool called <code>flatiron</code>. To create a new project, go to an existing folder and run:</p>
               <div class="panel">
-                  <p class="bash">$ flatiron webserver</p>
+                <p class="bash">$ flatiron create &lt;type&gt; &lt;app-name&gt;</p>
+              </div>
+              
+              <p>You can also simply include flatiron in your package.json and install locally with npm.</p>
+
+              <div class="panel">
+<pre class="syntax">
+  {
+    "name": "your-application",
+    "dependencies": {
+      "flatiron": "*"
+    }
+  }
+</pre>
+              </div>
+              
+              Installing your dependencies with <code>npm</code> will install flatiron and all nested dependencies:
+              <br/><br/>
+              <div class="panel">
+                <p class="bash">$ cd /path/to/your/app <br/>
+                  $ npm install</p>
               </div>
               
 
@@ -161,8 +181,55 @@
                 <a href="http://github.com/flatiron/director" class="button icon tag">Full project on Github</a>
               </div>
 
+              <h3>What problem does it solve?</h3>
               <p>Director is a URL router. It works in a browser for single page apps <b>and</b> in Node.js. It's not a plugin for another framework. It's not dependent on anything. It's a modern router that was designed from the ground up with javascript.</p>
 
+              <h3>Integration with Flatiron</h3>
+              A Director based router is automatically attached to your application when using <code>flatiron.plugins.http</code> or <code>flatiron.plugins.cli</code>
+              <br/><br/>
+              
+              <h4>CLI application</h4>
+              <div class="panel">
+<pre class="syntax">
+  var flatiron = require('flatiron'),
+      app = flatiron.app;
+  
+  app.use(flatiron.plugins.cli, {
+    // CLI options
+  });
+  
+  //
+  // app.router is now available. app.cmd is also available
+  // as a shortcut for creating routes
+  //
+  app.cmd('version', function () {
+    console.log('flatiron ' + flatiron.version);
+  });
+</pre>
+              </div>
+              
+              <h4>HTTP application</h4>
+              <div class="panel">
+<pre class="syntax">
+  var flatiron = require('flatiron'),
+      app = flatiron.app;
+  
+  app.use(flatiron.plugins.http, {
+    // HTTP options
+  });
+  
+  //
+  // app.router is now available. app[HTTP-VERB] is also available
+  // as a shortcut for creating routes
+  //
+  app.get(/\/version/, function () {
+    this.res.writeHead(200, { 'Content-Type': 'text/plain' })
+    this.res.end('flatiron ' + flatiron.version);
+  });
+</pre>
+              </div>
+
+              <h3>How does it work?</h3>
               <p>On the client, it uses part of the URL to figure out what functions should execute, which usually has some effect on the way the page is presented.</p>
 
               <div class="panel">
@@ -256,6 +323,15 @@ server.listen(8080);
                 <li>Make both the code and markup more readable and maintainable by a wider audience.</li>
               </ul>
 
+              <h3>Integration with Flatiron</h3>
+              No special integration with <code>flatiron</code> is provided, you can simply use plates by requiring it.<br/><br/>
+              
+              <div class="panel">
+<pre class="syntax">
+  var plates = require('plates');
+</pre>
+              </div>
+
               <h3>How does it work?</h3>
               <p>
               By default, plates will try to match the data-key in the data to an ID in the tag, since both should are uniqe.
@@ -263,12 +339,12 @@ server.listen(8080);
              
              <div class="panel">
 <pre class="syntax">
-var Plates = require('plates');
+var plates = require('plates');
 
 var html = '&lt;div id="test"&gt;Old Value&lt;/div&gt;';
 var data = { "test": "New Value" };
 
-var output = Plates.bind(html, data); 
+var output = plates.bind(html, data); 
 </pre>
 </div>
               <p>
@@ -279,11 +355,11 @@ var output = Plates.bind(html, data);
 var html = '<span class="name">User</span>...<span class="name">User</span>';
 
 var data = { "username": "John Smith" };
-var map = Plates.Map();
+var map = plates.Map();
 
 map.class('name').to('username');
 
-console.log(Plates.bind(html, data, map));
+console.log(plates.bind(html, data, map));
 </pre>
 </div>
               <p>
@@ -294,11 +370,11 @@ console.log(Plates.bind(html, data, map));
 var html = '<a href="/"></a>';
 
 var data = { "newurl": "http://www.nodejitsu.com" };
-var map = Plates.Map();
+var map = plates.Map();
 
 map.where('href').is('/').insert('newurl');
 
-console.log(Plates.bind(html, data, map));
+console.log(plates.bind(html, data, map));
 </pre>
 </div>
               <p>
@@ -309,11 +385,11 @@ console.log(Plates.bind(html, data, map));
 var html = '<a href="/"></a>';
 
 var data = { "imageurl": "http://www.nodejitsu.com" };
-var map = Plates.Map();
+var map = plates.Map();
 
 map.where('data-foo').is('bar').use('imageurl').as('src');
 
-console.log(Plates.bind(html, data, map));
+console.log(plates.bind(html, data, map));
 </pre>
 </div>
 
@@ -334,8 +410,19 @@ console.log(Plates.bind(html, data, map));
 
                 <li>Define an extensibility model for databases to provide CRUD functionality to Models along with custom query, filtering or updating specific to that specific implementation (Mongo, CouchDB, Redis, etc).</li>
               </ul>
+              
+              <h3>Integration with Flatiron</h3>
+              No special integration with <code>flatiron</code> is provided, you can simply use resourceful by requiring it.<br/><br/>
+              
+              <div class="panel">
+<pre class="syntax">
+  var resourceful = require('resourceful');
+</pre>
+              </div>
 
               <h3>How does it work?</h3>
+              Resources can be defined using <code>resourceful.define(name, factory)</code>. Once a resource prototype is created it can be treated as a normal Javascript prototype.<br/><br/>
+              
               <br/>
              <div class="panel">
 <pre class="syntax">
@@ -356,6 +443,7 @@ var wolf = new Creature({
 
 wolf.feed('squirrel');
 console.dir(wolf.belly);
+// ['squirrel']
 </pre>
 </div>
 
@@ -371,9 +459,40 @@ console.dir(wolf.belly);
               </p>
 
               <h3>What problem does it solve?</h3>
-              <p>It provides an easy way to interact with requests before and after they are processed. But it's primary value add is that it's a hybrid buffered, streaming middleware kernel that isn't coupled with any other software.
-              </p>
-
+              <p>It provides an easy way to interact with requests before and after they are processed. But it's primary value add is that it's a hybrid buffered, streaming middleware kernel that isn't coupled with any other software.</p>
+              
+              <h3>Integration with Flatiron</h3>
+              By using <code>flatiron.plugins.http</code> you can configure and control a <code>union</code> server. The middleware used by <code>union</code> are compatible with express and connect.<br/><br/>
+              
+              <div class="panel">
+<pre class="syntax">
+  var flatiron = require('flatiron'),
+      app = flatiron.app;
+  
+  app.use(flatiron.plugins.http, {
+    //
+    // List of middleware to use before dispatching 
+    // to app.router
+    //
+    before: [],
+    //
+    // List of Streams to execute on the response pipeline 
+    //
+    after: []
+  });
+  
+  //
+  // Both app.listen(port, [host,] callback) and 
+  // app.start(port, [host,] callback) are now attached 
+  // to your application. app.start() will automatically 
+  // call app.listen() after calling app.init().
+  //
+  app.listen(8000, function () {
+    console.log('Application is now started on port 8000');
+  });
+</pre>
+              </div>
+              
               <h3>How does it work?</h3>
               <br/>
              <div class="panel">
@@ -413,12 +532,42 @@ router.get(/foo/, function () {
               </p>
 
               <h3>What problem does it solve?</h3>
-              <p>
-              This plugin model translates well between the browser and the server because developers can write different plugins to suite the needs of the different environments. Broadway includes several plugins by default which can be overridden if you don't agree with the particular module or library choice we've made.
-              </p>
+              <p>This plugin model translates well between the browser and the server because developers can write different plugins to suite the needs of the different environments. Broadway includes several plugins by default which can be overridden if you don't agree with the particular module or library choice we've made.</p>
+
+              <h3>Integration with Flatiron</h3>
+              Each <code>flatiron.App</code> instance inherits from <code>broadway.App</code>. This means that you can write your own plugins to extend your application as you see fit.<br/><br/>
+
+              <div class="panel">
+<pre class="syntax">
+  var flatiron = require('flatiron'),
+      app = flatiron.app;
+
+  var customPlugin = {
+    name: 'custom-plugin',
+    attach: function (options) {
+      //
+      // Extend the application
+      //
+      app.yourCustomMethod = function () {
+        
+      };
+    },
+    init: function (done) {
+      //
+      // Initialize anything your plugin needs,
+      // asynchronously if necessary, then call done().
+      //
+      done();
+    }
+  };
+  
+  app.use(customPlugin);
+</pre>
+              </div>
 
               <h3>How does it work?</h3>
-              <br/>
+              <p>Each plugin in <code>broadway</code> interacts with an application instance through four properties illustrated in the code sample below:</p>
+              
              <div class="panel">
 <pre class="syntax">
 var plugin = {
@@ -451,14 +600,26 @@ var plugin = {
                 <a href="http://github.com/flatiron/winston" class="button icon tag">Full project on Github</a>
               </div>
 
-              <p>
-              A multi-transport async logging library. 
-              </p>
+              <p>A multi-transport async logging library.</p>
 
               <h3>What problem does it solve?</h3>
               <p>Winston is designed to be a simple and universal logging library with support for multiple transports. A transport is essentially a storage device for your logs. Each instance of a winston logger can have multiple transports configured at different levels. For example, one may want error logs to be stored in a persistent remote location (like a database), but all logs output to the console or a local file.</p>
 
               <p>There also seemed to be a lot of logging libraries out there that coupled their implementation of logging (i.e. how the logs are stored / indexed) to the API that they exposed to the programmer. This library aims to decouple those parts of the process to make it more flexible and extensible.</p>
+              
+              <h3>Integration with Flatiron</h3>
+              Using <code>flatiron.plugins.log</code> will automatically extend your application with logging capabilities from <code>winston</code>. This plugin is included by default in both CLI and HTTP flatiron apps.<br/><br/>
+              
+              <div class="panel">
+<pre class="syntax">
+  var flatiron = require('flatiron'),
+      app = flatiron.app;
+
+  app.log.info('Logging to my flatiron application', {
+    with: 'custom metadata'
+  });
+</pre>
+              </div>
 
               <h3>How does it work?</h3>
               <br/>
@@ -478,7 +639,7 @@ winston.info('Hello again distributed logs');
 winston.add(winston.transports.File, { filename: 'somefile.log' });
 winston.remove(winston.transports.Console);
 </pre>
-</div>
+             </div>
 
 
             </div>
