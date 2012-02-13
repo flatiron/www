@@ -352,7 +352,7 @@ var output = plates.bind(html, data);
               </p>
              <div class="panel">
 <pre class="syntax">
-var html = '<span class="name">User</span>...<span class="name">User</span>';
+var html = '&lt;span class="name"&gt;User&lt;/span&gt;...&lt;span class="name"&gt;User&lt;/span&gt;';
 
 var data = { "username": "John Smith" };
 var map = plates.Map();
@@ -367,7 +367,7 @@ console.log(plates.bind(html, data, map));
               </p>
              <div class="panel">
 <pre class="syntax">
-var html = '<a href="/"></a>';
+var html = '&lt;a href="/"&gt;&lt;/a&gt;';
 
 var data = { "newurl": "http://www.nodejitsu.com" };
 var map = plates.Map();
@@ -382,7 +382,7 @@ console.log(plates.bind(html, data, map));
               </p>
              <div class="panel">
 <pre class="syntax">
-var html = '<a href="/"></a>';
+var html = '&lt;a href="/"&gt;&lt;/a&gt;';
 
 var data = { "imageurl": "http://www.nodejitsu.com" };
 var map = plates.Map();
