@@ -1,6 +1,6 @@
 {
   "name": "flatiron-www",
-  "version": "0.0.1-4",
+  "version": "0.0.1-7",
   "subdomain": "flatiron",
   "dependencies": {
     "http-server": "0.4.x"
