@@ -14,6 +14,6 @@
     "www.flatironjs.net"
   ],
   "scripts": {
-    "start": "bin/server"
+    "start": "node_modules/.bin/http-server"
   }
 }
