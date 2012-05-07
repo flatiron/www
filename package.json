@@ -18,5 +18,11 @@
   },
   "engines": {
     "node": "0.6.x"
-  }
+  },
+  "author": "Nodejitsu Inc. <info@nodejitsu.com>",
+  "maintainers": [
+    "hij1nx <paolo@nodejitsu.com>",
+    "jvduf <jeroen@nodejitsu.com>"
+  ]
 }
+
