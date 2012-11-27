@@ -3,7 +3,7 @@
   "version": "0.0.1-7",
   "subdomain": "flatiron",
   "dependencies": {
-    "http-server": "0.4.x"
+    "http-server": "0.5.x"
   },
   "domains": [
     "flatironjs.org",
