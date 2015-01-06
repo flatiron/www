@@ -1,6 +1,6 @@
 {
   "name": "flatiron-www",
-  "version": "0.0.2",
+  "version": "0.0.2-1",
   "subdomain": "flatiron",
   "dependencies": {
     "http-server": "0.5.x"
@@ -25,4 +25,3 @@
     "jvduf <jeroen@nodejitsu.com>"
   ]
 }
-
