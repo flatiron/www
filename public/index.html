@@ -223,7 +223,7 @@
   // as a shortcut for creating routes
   //
   app.router.get('/version', function () {
-    this.res.writeHead(200, { 'Content-Type': 'text/plain' })
+    this.res.writeHead(200, { 'Content-Type': 'text/plain' });
     this.res.end('flatiron ' + flatiron.version);
   });
 
@@ -261,7 +261,7 @@ var http = require('http'),
 // functions that might be called from in a routing table.
 //
 function showAuthor() {
-  this.res.writeHead(200, { 'Content-Type': 'text/plain' })
+  this.res.writeHead(200, { 'Content-Type': 'text/plain' });
   this.res.end('Carl Sagan');
 }
 
